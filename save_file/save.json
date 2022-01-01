@@ -1,0 +1,5 @@
+{
+  "lives_left":5,
+  "correct_indeces":{"1":"w","4":"t"},
+  "wrong_letters":["i","o","f","j","s"]
+}
