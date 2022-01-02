@@ -1,24 +1,9 @@
 # Frozen_string_literal: true
-# words between 5 and 12 letters
-# display ascii sprites (Optional)
-# display guessed/unguessed letters (underscores)
-# case insensitive
-# implement save function during the game at any point
-#   save: lives_left, word_to_be_guessed, guessed_letters(indicis),
-#         user_name(for save file name)
-# implement a load function at the main menu
-
-# Screens
-# Main Menu -> New Game -> random_word_chosen, game_object_inits_normally
-#           -> Load Game -> pick_save_file_from_list,
-#                           game_object_creation_from_json (game continues
-#                           normally)
-#           -> Exit Game -> output_thank_you_message, kill_program
 require_relative 'game'
 
 def new_game
   word = random_word
-  p word
+  # p word
   Game.new(word)
 end
 
@@ -36,8 +21,9 @@ def load_game
 end
 
 choice = ''
-# TODO: menu text into text module
 menu = "Main Menu\nEnter:\nn - new game\nl - load game\ne - exit game\nh - to see this menu again"
+
+puts "\n       Hangman\nYou have to guess the word within 10 lives\n"
 puts menu
 
 until choice == 'e'
