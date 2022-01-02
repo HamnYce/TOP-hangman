@@ -17,22 +17,26 @@
 require_relative 'game'
 
 def new_game
-  words = File.new('512desk.txt', 'r').readlines
-  word = words[rand(words.length)]
-  puts word
+  word = random_word
+  p word
   Game.new(word)
+end
+
+def random_word
+  words = File.new('512desk.txt', 'r').readlines
+  words[rand(words.length)].chomp
 end
 
 def load_game
   if File.exist? 'save_file/save.json'
-    File.open('save_file/save.json') { |file| Game.from_json(file) }
-    File.delete('save_file/save.json')
+    Game.from_json(File.new('save_file/save.json'))
   else
-    puts 'There is no save file present, try out a new game option instead ^^!'
+    puts 'There is no save file present, try out a new game first ^^!'
   end
 end
 
 choice = ''
+# TODO: menu text into text module
 menu = "Main Menu\nEnter:\nn - new game\nl - load game\ne - exit game\nh - to see this menu again"
 puts menu
 
