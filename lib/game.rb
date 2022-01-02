@@ -45,7 +45,9 @@ class Game
 
   def compare_letter_with_word(letter)
     # test letter against word
-    if @word.include? letter
+    if (@correct_indeces.map { |i| @word[i]}).include? letter
+      puts 'you\'ve already guessed that letter silly ;p'
+    elsif @word.include? letter
       @word.downcase.split('').each_with_index do |chr, i|
         @correct_indeces.push(i) if chr == letter
       end
